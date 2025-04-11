@@ -149,6 +149,7 @@
             width: 80%;
             margin: 0 auto;
             padding-left: 2rem;
+            max-width: 1200px;
         }
 
         .slide::before {
@@ -485,7 +486,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .what-we-offer ul li::before {
+        .what-we-offer ul(li)::before {
             content: '•';
             position: absolute;
             left: 0;
@@ -894,7 +895,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 1001;
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -1110,10 +1111,10 @@
         footer {
             background: #000000;
             color: #FFFFFF;
-            padding: 1.5rem 2rem;
+            padding: 2rem;
             text-align: center;
-            width: 100%;
-            margin-top: auto;
+            font-size: 0.875rem;
+            flex-shrink: 0;
         }
 
         .footer-content {
@@ -1122,38 +1123,22 @@
             max-width: 1200px;
         }
 
-        .footer-content p {
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
-        }
-
-        /* Back-to-Top Button Styling */
         .back-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
+            padding: 0.75rem;
             background: #FF6D38;
             color: #FFFFFF;
             border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
+            border-radius: 0;
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.3s;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .back-to-top.visible {
             opacity: 1;
-        }
-
-        .back-to-top:hover {
-            background: #FF4500;
         }
     </style>
 </head>
@@ -1478,7 +1463,6 @@
                 }
             });
 
-            // Back-to-Top Button Visibility
             const backToTop = document.querySelector('.back-to-top');
             backToTop.classList.toggle('visible', window.scrollY > 300);
         });
@@ -1593,13 +1577,13 @@
             });
         });
 
-        // Contact Button Functionality
-        const ctaButtons = document.querySelectorAll('.cta-button'); // Select all cta-button elements
+        const ctaButtons = document.querySelectorAll('.cta-button');
         const modal = document.querySelector('#contact-modal');
         const closeButton = document.querySelector('.close-button');
 
         ctaButtons.forEach(button => {
             button.addEventListener('click', () => {
+                console.log('Contact button clicked');
                 modal.classList.add('active');
             });
         });
@@ -1620,7 +1604,6 @@
             }
         });
 
-        // Back-to-Top Button Click Event
         const backToTop = document.querySelector('.back-to-top');
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
