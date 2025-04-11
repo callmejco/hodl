@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HODL ₿TC - Crypto Education in Dubai</title>
+    <meta name="description" content="HODL ₿TC - Your Dubai-based guide to Bitcoin education, wallet security, and crypto safety. Start your journey today!">
+    <meta name="keywords" content="Bitcoin, cryptocurrency, Dubai, crypto education, wallet security">
+    <meta name="author" content="HODL ₿TC">
+    <meta property="og:title" content="HODL ₿TC - Crypto Education in Dubai">
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+    <meta property="og:description" content="Learn Bitcoin and crypto safely with HODL ₿TC.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background: #FFFFFF;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            transition: background 0.3s ease;
+            z-index: -1;
+        }
+
+        .navbar-container.solid .navbar-background {
+            background: rgba(51, 51, 51, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInNavbar 0.3s ease-in-out;
+        }
+
+        @keyframes fadeInNavbar {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .navbar {
+            width: 80%;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .navbar-brand:hover {
+            color: #FF6D38;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item, .cta-button {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .nav-item:hover, .cta-button:hover, .nav-item.active {
+            color: #FF6D38;
+        }
+
+        .nav-item:focus, .cta-button:focus {
+            outline: 2px solid #FF6D38;
+            outline-offset: 2px;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: #FFFFFF;
+            font-size: 1.75rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to top, #FFF3E0 0%, #FF6D38 100%);
+            background-size: 100% 150%;
+            background-attachment: fixed;
+        }
+
+        .slides {
+            width: 300%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .slides.loaded {
+            opacity: 1;
+        }
+
+        .slide {
+            width: 33.33%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide-content-wrapper {
+            width: 80%;
+            margin: 0 auto;
+            padding-left: 2rem;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('https://via.placeholder.com/800x600?text=Abstract+Shape') no-repeat right center;
+            background-size: contain;
+            opacity: 0.2;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        .slide-content {
+            text-align: left;
+            color: #FFFFFF;
+            padding: 2rem;
+            z-index: 2;
+            max-width: 60%;
+        }
+
+        .slide-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .slide-content p {
+            font-size: 1.1rem;
+            color: #FFFFFF;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-slider-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #FF6D38;
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid #FF6D38;
+        }
+
+        .word-swap {
+            display: block;
+            position: relative;
+            min-width: 120px;
+            height: 3rem;
+            margin: 1rem 0;
+        }
+
+        .word-swap span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            animation: swap 6s infinite;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .word-swap .word1 { animation-delay: 0s; }
+        .word-swap .word2 { animation-delay: 2s; }
+        .word-swap .word3 { animation-delay: 4s; }
+
+        @keyframes swap {
+            0% { opacity: 0; transform: translateY(100%); }
+            16.67% { opacity: 1; transform: translateY(0); }
+            33.33% { opacity: 1; transform: translateY(0); }
+            50% { opacity: 0; transform: translateY(-100%); }
+            100% { opacity: 0; transform: translateY(-100%); }
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .nav-dot.active {
+            background: #FF6D38;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 109, 56, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .nav-arrow:hover {
+            background: #FF6D38;
+        }
+
+        .nav-left { left: 10%; }
+        .nav-right { right: 10%; }
+
+        .section {
+            padding: 6rem 2rem;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-content {
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section h2 .highlight {
+            color: #FF6D38;
+        }
+
+        .section h2 .regular {
+            color: #000000;
+        }
+
+        .section p {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        .why-crypto {
+            background: #F2F2F2;
+            text-align: center;
+        }
+
+        .why-crypto .section-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .why-crypto h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .why-crypto .subheading {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .why-crypto .subheading .highlight {
+            color: #FF6D38;
+        }
+
+        .why-crypto .subheading .regular {
+            color: #000000;
+        }
+
+        .why-crypto p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .why-crypto .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .why-crypto .secondary-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #FFFFFF;
+            color: #FF6D38;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid #FF6D38;
+        }
+
+        .our-services {
+            background: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .our-services .section-content {
+            display: grid;
+            grid-template-areas:
+                "title"
+                "description"
+                "cards";
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .our-services h2 {
+            grid-area: title;
+        }
+
+        .our-services .description {
+            grid-area: description;
+        }
+
+        .services-grid {
+            grid-area: cards;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .service-card {
+            background: #F5F5F5;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+            width: 100%;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FF6D38;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #333333;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .service-card a {
+            font-size: 0.9rem;
+            color: #FF6D38;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .service-card a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-card {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-card {
+                min-height: 200px;
+            }
+        }
+
+        .what-we-offer {
+            background: #F2F2F2;
+            background-attachment: fixed;
+            background-size: 100% 120%;
+        }
+
+        .what-we-offer .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .what-we-offer h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .what-we-offer ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .what-we-offer ul li {
+            font-size: 1rem;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .what-we-offer ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #FF6D38;
+            font-size: 1.2rem;
+        }
+
+        .what-we-offer .learn-more {
+            display: inline-block;
+            color: #FF6D38;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .what-we-offer .learn-more:hover {
+            color: #000000;
+        }
+
+        .what-we-offer .phone-mockups {
+            position: relative;
+            height: 400px;
+        }
+
+        .what-we-offer .phone-mockup {
+            position: absolute;
+            width: 200px;
+            height: 400px;
+            background: #FFFFFF;
+            border: 8px solid #000000;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .what-we-offer .phone-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .what-we-offer .phone-mockup:first-child {
+            left: 0;
+            z-index: 2;
+        }
+
+        .what-we-offer .phone-mockup:last-child {
+            right: 0;
+            z-index: 1;
+            transform: translateX(-20%);
+        }
+
+        .crypto-made-simple {
+            background: #F5F5F5;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+
+        .crypto-made-simple .slides {
+            width: 300%;
+            height: 400px;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .crypto-made-simple .slide {
+            width: 33.33%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .crypto-made-simple .slide-content {
+            max-width: 600px;
+            color: #333333;
+        }
+
+        .crypto-made-simple .slide-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .crypto-made-simple .slide-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .crypto-made-simple .navigation {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .crypto-made-simple .nav-rect {
+            width: 20px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .crypto-made-simple .nav-rect.active {
+            background: #FF6D38;
+        }
+
+        .dubai-based {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1533038590108-e7e802a9b6d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .dubai-based::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+
+        .dubai-based .section-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dubai-based h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .dubai-based p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dubai-based .learn-more {
+            display: inline-block;
+            color: #FF6D38;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .dubai-based .learn-more:hover {
+            color: #FFFFFF;
+        }
+
+        .about {
+            background: #F2F2F2;
+            background-attachment: fixed;
+            background-size: 100% 120%;
+        }
+
+        .about .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .about .about-text {
+            text-align: left;
+        }
+
+        .about .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .about .about-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about .about-text ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .about .about-text ul li {
+            font-size: 1rem;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .about .about-text ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #FF6D38;
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(to bottom, #FFB74D, #FF4500);
+            color: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-content {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background: #000000;
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid #000000;
+            display: inline-block;
+            width: auto;
+        }
+
+        @media (max-width: 576px) {
+            .cta-button {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+        .contact-section {
+            background: #FFFFFF;
+            padding: 4rem 2rem;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            color: #000000;
+        }
+
+        .contact-content {
+            width: 80%;
+            max-width: 1200px;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info h2 .highlight {
+            color: #FF6D38;
+        }
+
+        .contact-info h2 .regular {
+            color: #000000;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info .social-icons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-info .social-icons a {
+            color: #FF6D38;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .contact-info .social-icons a:hover {
+            color: #FF4500;
+        }
+
+        .contact-form {
+            flex: 1;
+            padding: 2rem;
+            background: #FFFFFF;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 400;
+            box-sizing: border-box;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #FF6D38;
+        }
+
+        .contact-form label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: #FF6D38;
+            color: #FFFFFF;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .contact-form .submit-button:hover {
+            background: #FF4500;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 1rem;
+            }
+
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 0;
+            position: relative;
+            max-width: 1200px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50px);
+            transition: transform 0.3s;
+            color: #000000;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #CCCCCC;
+        }
+
+        .close-button:hover {
+            color: #FF6D38;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                width: 90%;
+                padding: 1rem;
+            }
+            .navbar-brand {
+                font-size: 2rem;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 109, 56, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            .nav-menu.active {
+                display: flex;
+                animation: slideIn 0.3s ease-in-out;
+            }
+            @keyframes slideIn {
+                from { transform: translateY(-100%); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            .slide-content h1 {
+                font-size: 2rem;
+            }
+            .slide-content p {
+                font-size: 0.9rem;
+            }
+            .section {
+                padding: 4rem 1rem;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .slider-container, .what-we-offer, .about, .dubai-based {
+                background-attachment: scroll;
+            }
+            .why-crypto h2 {
+                font-size: 2rem;
+            }
+            .why-crypto .subheading {
+                font-size: 1.2rem;
+            }
+            .why-crypto .button-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .what-we-offer .section-content {
+                grid-template-columns: 1fr;
+            }
+            .what-we-offer .phone-mockups {
+                display: none;
+            }
+            .dubai-based h2 {
+                font-size: 2rem;
+            }
+            .dubai-based p {
+                font-size: 1rem;
+            }
+            .about .section-content {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .about .about-text h3 {
+                font-size: 1.2rem;
+            }
+            .crypto-made-simple .slide {
+                height: 300px;
+            }
+            .crypto-made-simple .slide-content h2 {
+                font-size: 2rem;
+            }
+            .crypto-made-simple .slide-content p {
+                font-size: 1rem;
+            }
+            .our-services .section-content {
+                grid-template-areas:
+                    "title"
+                    "description"
+                    "cards";
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .service-card {
+                min-height: 250px;
+            }
+            .modal-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 0.5rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            .slide-content h1 {
+                font-size: 1.5rem;
+            }
+            .word-swap span {
+                font-size: 1.5rem;
+            }
+            .why-crypto h2 {
+                font-size: 1.5rem;
+            }
+            .why-crypto .subheading {
+                font-size: 1rem;
+            }
+            .dubai-based h2 {
+                font-size: 1.5rem;
+            }
+            .dubai-based p {
+                font-size: 0.9rem;
+            }
+            .about h2 {
+                font-size: 1.5rem;
+            }
+            .about .about-text h3 {
+                font-size: 1rem;
+            }
+            .crypto-made-simple .slide-content h2 {
+                font-size: 1.5rem;
+            }
+            .crypto-made-simple .slide-content p {
+                font-size: 0.9rem;
+            }
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+            .contact-content {
+                flex-direction: column;
+            }
+            .form-group {
+                min-width: 100%;
+            }
+            .service-card {
+                min-height: 200px;
+            }
+            .modal-content {
+                max-width: 90%;
+                width: 95%;
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #000000;
+            color: #FFFFFF;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .footer-content p {
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Back-to-Top Button Styling */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #FF6D38;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container" aria-label="Main navigation">
+        <div class="navbar-background"></div>
+        <nav class="navbar">
+            <a href="#" class="navbar-brand" aria-label="HODL ₿TC Home">HODL ₿TC</a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="nav-menu">
+                <a href="#" class="nav-item active" aria-label="Home">Home</a>
+                <a href="#" class="nav-item" aria-label="About">About</a>
+                <a href="#" class="nav-item" aria-label="Services">Services</a>
+                <button type="button" class="cta-button" aria-label="Contact">Contact</button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <button type="button" class="close-button" aria-label="Close">×</button>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2><span class="highlight">HODL ₿TC.</span> <span class="regular">The Future of Crypto is Now</span></h2>
+                    <p>Trusted Education = Trusted Crypto</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiry">Enquiry:</label>
+                        <textarea id="enquiry" name="enquiry" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <div class="slides">
+            <div class="slide">
+                <div class="slide-content-wrapper">
+                    <div class="slide-content">
+                        <h1>Welcome to HODL ₿TC</h1>
+                        <p>Your Dubai-based guide to Bitcoin education and wallet security.</p>
+                        <p>Diversify wisely. ₿itcoin is the foundation of modern portfolios.</p>
+                        <a href="#" class="cta-slider-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content-wrapper">
+                    <div class="slide-content">
+                        <h1>Learn Crypto Safely</h1>
+                        <p>Over 10,000 users educated with expert guidance.</p>
+                        <a href="#" class="cta-slider-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content-wrapper">
+                    <div class="slide-content">
+                        <h1>HODL ₿TC make cryptocurrency</h1>
+                        <span class="word-swap">
+                            <span class="word1">easy</span>
+                            <span class="word2">safe</span>
+                            <span class="word3">accessible</span>
+                        </span>
+                        <h1>for everyone</h1>
+                        <p>Master ₿itcoin with confidence.</p>
+                        <a href="#" class="cta-slider-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="nav-dot active"></div>
+            <div class="nav-dot"></div>
+            <div class="nav-dot"></div>
+        </div>
+        <div class="nav-arrow nav-left" aria-label="Previous slide">❮</div>
+        <div class="nav-arrow nav-right" aria-label="Next slide">❯</div>
+    </div>
+
+    <section class="section why-crypto">
+        <div class="section-content">
+            <h2><span class="regular">Why</span> <span class="highlight">Crypto?</span></h2>
+            <div class="subheading">
+                <span class="highlight">₿itcoin and blockchain</span> <span class="regular">at the core of your intelligent strategy</span>
+            </div>
+            <p>Don’t get left behind—learn how to buy, store, and protect your assets today.</p>
+            <div class="button-group">
+                <a href="#" class="cta-slider-button">Start Investing</a>
+                <a href="#" class="secondary-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section our-services">
+        <div class="section-content">
+            <h2><span class="regular">Our</span> <span class="highlight">Services</span></h2>
+            <div class="description">
+                <p>Built to meet you where you are. Our tools are designed with flexibility and versatility at their core, adapting to your unique roles, industries, and needs.</p>
+                <p>For every role</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Crypto Basics & Buying Guide</h3>
+                    <p>Learn how to buy ₿itcoin & other cryptocurrencies safely</p>
+                    <p>Understand exchanges, wallets & transaction security</p>
+                    <a href="#">AI strategies for Crypto Basics ></a>
+                </div>
+                <div class="service-card">
+                    <h3>Wallet Setup & Security</h3>
+                    <p>Assistance with setting up hot & cold wallets</p>
+                    <p>Learn best practices for private key management</p>
+                    <a href="#">AI strategies for Wallet Setup ></a>
+                </div>
+                <div class="service-card">
+                    <h3>Crypto Security & Cold Storage</h3>
+                    <p>Learn how to secure your assets from hackers & fraud</p>
+                    <p>Assistance with hardware wallets</p>
+                    <a href="#">AI strategies for Crypto Security ></a>
+                </div>
+                <div class="service-card">
+                    <h3>One-on-One Consultation & Portfolio Guidance</h3>
+                    <p>Get personalized advice on crypto best practices</p>
+                    <p>Understand how to store & manage your investments safely</p>
+                    <a href="#">AI strategies for Consultation ></a>
+                </div>
+                <div class="service-card">
+                    <h3>In-Person & Online Support (Dubai & Beyond)</h3>
+                    <p>Available for face-to-face meetings</p>
+                    <p>Virtual consultations for global clients</p>
+                    <a href="#">AI strategies for Support ></a>
+                </div>
+                <div class="service-card">
+                    <h3>Personalized Crypto Support & Education</h3>
+                    <p>💡 Whether you're just getting started or want to level up your crypto knowledge, We provide one-on-one guidance tailored to your needs.</p>
+                    <a href="#">AI strategies for Support & Education ></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section what-we-offer">
+        <div class="section-content">
+            <div>
+                <h2><span class="regular">What We</span> <span class="highlight">Offer</span></h2>
+                <ul>
+                    <li>Beginner-friendly step-by-step guidance</li>
+                    <li>Secure wallet setup & management</li>
+                    <li>Best practices for crypto security</li>
+                    <li>Assistance with buying & storing crypto safely</li>
+                    <li>Personalized one-on-one support</li>
+                </ul>
+                <a href="#" class="learn-more">See what’s possible with HODL ₿TC’s crypto tools →</a>
+            </div>
+            <div class="phone-mockups">
+                <div class="phone-mockup">
+                    <img src="https://via.placeholder.com/200x400?text=Crypto+App+1" alt="Crypto App Screenshot 1">
+                </div>
+                <div class="phone-mockup">
+                    <img src="https://via.placeholder.com/200x400?text=Crypto+App+2" alt="Crypto App Screenshot 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section crypto-made-simple">
+        <div class="slides">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2><span class="regular">Crypto</span> <span class="highlight">Made Simple</span></h2>
+                    <p>Navigating the crypto world can be overwhelming, but you don’t have to do it alone. At HODL ₿TC, we simplify the process so you can invest and manage your crypto with confidence.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2><span class="regular">Crypto</span> <span class="highlight">Made Simple</span></h2>
+                    <p>Navigating the crypto world can be overwhelming, but you don’t have to do it alone. At HODL ₿TC, we simplify the process so you can invest and manage your crypto with confidence.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <h2><span class="regular">Crypto</span> <span class="highlight">Made Simple</span></h2>
+                    <p>Navigating the crypto world can be overwhelming, but you don’t have to do it alone. At HODL ₿TC, we simplify the process so you can invest and manage your crypto with confidence.</p>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <div class="nav-rect active"></div>
+            <div class="nav-rect"></div>
+            <div class="nav-rect"></div>
+        </div>
+        <div class="nav-arrow nav-left" aria-label="Previous slide">❮</div>
+        <div class="nav-arrow nav-right" aria-label="Next slide">❯</div>
+    </section>
+
+    <section class="section dubai-based">
+        <div class="section-content">
+            <h2><span class="regular">Built with partners you can</span> <span class="highlight">trust</span></h2>
+            <p>In-person and online support for all, from our base in Dubai with global reach.</p>
+            <p>We DO NOT buy or sell crypto assets, nor do we endorse trading or any "quick cash" schemes. Instead, we focus on knowledge sharing and responsible, long-term investing.</p>
+            <a href="#" class="learn-more">Learn more about our mission →</a>
+        </div>
+    </section>
+
+    <section class="section about">
+        <div class="section-content">
+            <h2><span class="regular">About</span> <span class="highlight">Us</span></h2>
+            <div class="about-text left">
+                <h3>Our Mission</h3>
+                <p>At HODL ₿TC, our mission is to empower individuals to navigate the cryptocurrency world safely and confidently. We believe that crypto is the future, and our goal is to help you make informed, secure, and independent financial decisions.</p>
+            </div>
+            <div class="empty-column"></div>
+            <div class="empty-column"></div>
+            <div class="about-text right">
+                <h3>Our Vision</h3>
+                <p>To make ₿itcoin and crypto simple, safe, and accessible to everyone. We aim to bridge the gap between technology and everyday users by providing reliable and transparent crypto guidance.</p>
+            </div>
+            <div class="about-text left">
+                <h3>Our Expertise</h3>
+                <p>We are a passionate team of crypto enthusiasts with years of experience in blockchain, cryptocurrency security, and portfolio management. We specialize in:</p>
+                <ul>
+                    <li>Crypto onboarding for beginners</li>
+                    <li>Wallet security & cold storage solutions</li>
+                    <li>Best practices for safe crypto investing with a long-term vision</li>
+                    <li>Helping individuals avoid scams & pitfalls</li>
+                </ul>
+                <p>We understand that crypto can be confusing—but it doesn’t have to be. We are here to simplify it for you.</p>
+            </div>
+            <div class="empty-column"></div>
+        </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2><span class="regular">Start Your Crypto</span> <span class="highlight">Journey</span></h2>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2><span class="highlight">HODL ₿TC.</span> <span class="regular">The Future of Crypto is Now</span></h2>
+                <p>Trusted Education = Trusted Crypto</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/1234567890" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://linkedin.com" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="enquiry">Enquiry:</label>
+                    <textarea id="enquiry" name="enquiry" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 HODL ₿TC. All rights reserved.</p>
+            <p>Dubai, UAE | hodl.btc.dxb@gmail.com</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top">↑</button>
+
+    <script>
+        const navbarContainer = document.querySelector('.navbar-container');
+        const sliderContainer = document.querySelector('.slider-container');
+        const parallaxSections = document.querySelectorAll('.what-we-offer, .about, .dubai-based');
+
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+
+            navbarContainer.classList.toggle('solid', scrollPosition > 50);
+
+            sliderContainer.style.backgroundPositionY = `${scrollPosition * 0.3}px`;
+
+            parallaxSections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPosition > sectionTop - window.innerHeight && scrollPosition < sectionTop + sectionHeight) {
+                    const offset = (scrollPosition - sectionTop) * 0.2;
+                    section.style.backgroundPositionY = `${offset}px`;
+                }
+            });
+
+            // Back-to-Top Button Visibility
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.classList.toggle('visible', window.scrollY > 300);
+        });
+
+        const slidesContainer = document.querySelector('.slider-container .slides');
+        const dots = document.querySelectorAll('.navigation .nav-dot');
+        const leftArrow = document.querySelector('.nav-left');
+        const rightArrow = document.querySelector('.nav-right');
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let autoSlideInterval;
+
+        function updateSlider() {
+            slidesContainer.style.transform = `translateX(-${currentSlide * 33.33}%)`;
+            dots.forEach((dot, index) => dot.classList.toggle('active', index === currentSlide));
+        }
+
+        function startAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }, 6000);
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateSlider();
+                startAutoSlide();
+            });
+        });
+
+        leftArrow.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+            startAutoSlide();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+            startAutoSlide();
+        });
+
+        slidesContainer.classList.add('loaded');
+        startAutoSlide();
+
+        const cryptoSlides = document.querySelector('.crypto-made-simple .slides');
+        const cryptoRects = document.querySelectorAll('.crypto-made-simple .navigation .nav-rect');
+        const cryptoLeftArrow = document.querySelector('.crypto-made-simple .nav-left');
+        const cryptoRightArrow = document.querySelector('.crypto-made-simple .nav-right');
+        let cryptoCurrentSlide = 0;
+        const cryptoTotalSlides = 3;
+        let cryptoAutoSlideInterval;
+
+        function updateCryptoSlider() {
+            cryptoSlides.style.transform = `translateX(-${cryptoCurrentSlide * 33.33}%)`;
+            cryptoRects.forEach((rect, index) => rect.classList.toggle('active', index === cryptoCurrentSlide));
+        }
+
+        function startCryptoAutoSlide() {
+            clearInterval(cryptoAutoSlideInterval);
+            cryptoAutoSlideInterval = setInterval(() => {
+                cryptoCurrentSlide = (cryptoCurrentSlide + 1) % cryptoTotalSlides;
+                updateCryptoSlider();
+            }, 6000);
+        }
+
+        cryptoRects.forEach((rect, index) => {
+            rect.addEventListener('click', () => {
+                cryptoCurrentSlide = index;
+                updateCryptoSlider();
+                startCryptoAutoSlide();
+            });
+        });
+
+        cryptoLeftArrow.addEventListener('click', () => {
+            cryptoCurrentSlide = (cryptoCurrentSlide - 1 + cryptoTotalSlides) % cryptoTotalSlides;
+            updateCryptoSlider();
+            startCryptoAutoSlide();
+        });
+
+        cryptoRightArrow.addEventListener('click', () => {
+            cryptoCurrentSlide = (cryptoCurrentSlide + 1) % cryptoTotalSlides;
+            updateCryptoSlider();
+            startCryptoAutoSlide();
+        });
+
+        cryptoSlides.classList.add('loaded');
+        startCryptoAutoSlide();
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+
+        const forms = document.querySelectorAll('.contact-form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = form.querySelector('[type="email"]')?.value;
+                if (email && !email.includes('@')) {
+                    alert('Please enter a valid email.');
+                    return;
+                }
+                alert('Request submitted successfully!');
+                form.reset();
+                const modal = document.querySelector('#contact-modal');
+                if (form.closest('#contact-modal')) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Contact Button Functionality
+        const ctaButtons = document.querySelectorAll('.cta-button'); // Select all cta-button elements
+        const modal = document.querySelector('#contact-modal');
+        const closeButton = document.querySelector('.close-button');
+
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                modal.classList.add('active');
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Back-to-Top Button Click Event
+        const backToTop = document.querySelector('.back-to-top');
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
