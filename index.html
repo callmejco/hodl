@@ -215,7 +215,7 @@
         .slide-content-wrapper {
             width: 80%;
             margin: 0 auto;
-            padding-left: 2rem;
+            padding-left: 4rem;
         }
 
         .slide::before {
@@ -243,13 +243,18 @@
         .slide-content h1 {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         .slide-content p {
             font-size: 1.1rem;
             color: #FFFFFF;
             margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .slide-content .word-swap {
+            margin-bottom: 2rem;
         }
 
         .cta-slider-button {
@@ -329,16 +334,16 @@
         }
 
         .nav-dot.active {
-            background: #FF4500;
+            background: rgba(0, 0, 0, 0.7);
         }
 
         .nav-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 69, 0, 0.7);
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -346,10 +351,11 @@
             color: #FFFFFF;
             cursor: pointer;
             z-index: 2;
+            font-size: 1.2rem;
         }
 
         .nav-arrow:hover {
-            background: #FF4500;
+            background: rgba(0, 0, 0, 0.9);
         }
 
         .nav-left { left: 10%; }
@@ -393,7 +399,7 @@
         }
 
         .why-crypto {
-            background: #F2F2F2;
+            background: linear-gradient(to bottom, #F2F2F2, #FFFFFF);
             text-align: center;
         }
 
@@ -435,7 +441,7 @@
         }
 
         .what-we-offer {
-            background: #FFFFFF;
+            background: #F2F2F2;
             background-attachment: fixed;
             background-size: 100% 120%;
         }
@@ -460,6 +466,7 @@
             flex-direction: column;
             align-items: center;
             max-width: 600px;
+            width: fit-content;
         }
 
         .what-we-offer ul li {
@@ -469,7 +476,7 @@
             position: relative;
             padding-left: 1rem;
             text-align: left;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             transition: transform 0.2s ease;
             width: 100%;
         }
@@ -592,7 +599,7 @@
         }
 
         .bitcoin-smart-choice {
-            background: #F5F5F5;
+            background: linear-gradient(to bottom, #FFFFFF, #F5F5F5);
             position: relative;
             overflow: hidden;
             padding: 4rem 2rem;
@@ -660,7 +667,19 @@
         }
 
         .bitcoin-smart-choice .nav-rect.active {
-            background: #FF4500;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .bitcoin-smart-choice .nav-arrow {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        .bitcoin-smart-choice .nav-arrow:hover {
+            background: rgba(0, 0, 0, 0.9);
         }
 
         .dubai-based {
@@ -1015,7 +1034,7 @@
                 animation: slideIn 0.3s ease-in-out;
             }
             @keyframes slideIn {
-                from { transform unicode-range: U+0000-00FF, U+2000-206F, U+2E80-2EFF, U+2F00-2FDF, U+3040-309F, U+30A0-30FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+                from { transform: translateY(-100%); opacity: 0; }
                 to { transform: translateY(0); opacity: 1; }
             }
             .slide-content h1 {
@@ -1119,7 +1138,7 @@
                 font-size: 1.5rem;
             }
             .slide-content h1 {
-                font-size:System.out.println("1.5rem");
+                font-size: 1.5rem;
             }
             .word-swap span {
                 font-size: 1.5rem;
@@ -1190,16 +1209,16 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #FF4500;
+            background: rgba(0, 0, 0, 0.3);
             color: #FFFFFF;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
             cursor: pointer;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, background 0.3s;
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -1211,7 +1230,7 @@
         }
 
         .back-to-top:hover {
-            background: #FF4500;
+            background: rgba(0, 0, 0, 0.9);
         }
     </style>
 </head>
@@ -1285,9 +1304,13 @@
             <div class="slide">
                 <div class="slide-content-wrapper">
                     <div class="slide-content">
-                        <h1>Welcome to HODL ₿TC</h1>
-                        <p>Your Dubai-based guide to Bitcoin education and wallet security.</p>
-                        <p>Diversify wisely. ₿itcoin is the foundation of modern portfolios.</p>
+                        <h1>Bitcoin made simple —</h1>
+                        <span class="word-swap">
+                            <span class="word1">Learn</span>
+                            <span class="word2">HODL</span>
+                            <span class="word3">Grow</span>
+                        </span>
+                        <p>Welcome to HODL ₿TC, whether you're new to Bitcoin or looking to enhance your crypto knowledge, we help you navigate the digital asset space safely and confidently.</p>
                         <a href="#" class="cta-slider-button">Get Started</a>
                     </div>
                 </div>
@@ -1295,8 +1318,8 @@
             <div class="slide">
                 <div class="slide-content-wrapper">
                     <div class="slide-content">
-                        <h1>Learn Crypto Safely</h1>
-                        <p>Over 10,000 users educated with expert guidance.</p>
+                        <h1>Our mission is simple:</h1>
+                        <p>To make cryptocurrency easy, safe, and accessible for everyone.</p>
                         <a href="#" class="cta-slider-button">Get Started</a>
                     </div>
                 </div>
@@ -1311,7 +1334,7 @@
                             <span class="word3">accessible</span>
                         </span>
                         <h1>for everyone</h1>
-                        <p>Master ₿itcoin with confidence.</p>
+                        <p>We break down complex concepts into easy steps, helping you understand, invest, and store your crypto securely.</p>
                         <a href="#" class="cta-slider-button">Get Started</a>
                     </div>
                 </div>
@@ -1716,8 +1739,8 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Navbar scroll behavior
         const navItems = document.querySelectorAll('.nav-item');
+        const navbarBrand = document.querySelector('.navbar-brand');
         navItems.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1734,11 +1757,18 @@
                 }
                 if (targetSection) {
                     window.scrollTo({
-                        top: targetSection.offsetTop - 50, // Adjust for navbar height
+                        top: targetSection.offsetTop - 50,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+
+        navbarBrand.addEventListener('click', (e) => {
+            e.preventDefault();
+            navItems.forEach(nav => nav.classList.remove('active'));
+            navItems[0].classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
