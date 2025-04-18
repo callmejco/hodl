@@ -20,7 +20,7 @@
         }
 
         :root {
-            --banner-height: 3.5rem; /* Define banner height */
+            --banner-height: 3.5rem;
         }
 
         body {
@@ -35,7 +35,7 @@
         }
 
         .banner-wrapper {
-            height: var(--banner-height); /* Reserve space for banner */
+            height: var(--banner-height);
             position: fixed;
             top: 0;
             left: 0;
@@ -65,10 +65,10 @@
 
         .navbar-container {
             position: fixed;
-            top: var(--banner-height); /* Position below banner */
+            top: var(--banner-height);
             width: 100%;
             z-index: 1000;
-            transition: top 0.3s ease-in-out; /* Smooth transition for top property */
+            transition: top 0.3s ease-in-out;
         }
 
         .navbar-background {
@@ -123,35 +123,53 @@
             align-items: center;
         }
 
-        .nav-item, .cta-button {
+        .nav-item {
             color: #FFFFFF;
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
             text-transform: uppercase;
+            padding-bottom: 2px;
+            position: relative;
         }
 
-        .nav-item:hover, .cta-button:hover, .nav-item.active {
+        .nav-item:hover {
             color: #FF4500;
         }
 
-        .nav-item:focus, .cta-button:focus {
-            outline: 2px solid #FF4500;
-            outline-offset: 2px;
+        .nav-item.active {
+            color: #FFFFFF;
+            border-bottom: 2px solid #FF4500;
+        }
+
+        .nav-item:focus {
+            outline: none;
+            border-bottom: 2px solid #FF4500;
         }
 
         .cta-button {
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             background: #000000;
             color: #FFFFFF;
             border: 1px solid #000000;
             cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, color 0.3s, border 0.3s;
         }
 
         .cta-button:hover {
             background: #333333;
             color: #FFFFFF;
             border: 1px solid #333333;
+        }
+
+        .cta-button:focus {
+            outline: 2px solid #FF4500;
+            outline-offset: 2px;
         }
 
         .menu-toggle {
@@ -165,11 +183,11 @@
 
         .slider-container {
             width: 100%;
-            height: calc(100vh - var(--banner-height)); /* Adjust height to account for banner */
+            height: 100vh;
             position: relative;
             overflow: hidden;
             background: linear-gradient(to bottom, #FFB74D, #FF4500);
-            background-size: 100% 150%;
+            background-size: 100% 100%;
             background-attachment: fixed;
         }
 
@@ -191,6 +209,7 @@
             position: relative;
             display: flex;
             align-items: center;
+            justify-content: flex-start;
         }
 
         .slide-content-wrapper {
@@ -234,20 +253,28 @@
         }
 
         .cta-slider-button {
-            display: inline-block;
-            padding: 1rem 2rem;
+            padding: 0.75rem 1.5rem;
             background: #000000;
             color: #FFFFFF;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
             border: 1px solid #000000;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, color 0.3s, border 0.3s;
         }
 
         .cta-slider-button:hover {
             background: #333333;
             color: #FFFFFF;
             border: 1px solid #333333;
+        }
+
+        .cta-slider-button:focus {
+            outline: 2px solid #FF4500;
+            outline-offset: 2px;
         }
 
         .word-swap {
@@ -379,6 +406,7 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            white-space: nowrap;
         }
 
         .why-crypto .subheading {
@@ -406,21 +434,68 @@
             gap: 1rem;
         }
 
-        .why-crypto .secondary-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #000000;
-            color: #FFFFFF;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border: 1px solid #000000;
+        .what-we-offer {
+            background: #FFFFFF;
+            background-attachment: fixed;
+            background-size: 100% 120%;
         }
 
-        .why-crypto .secondary-button:hover {
-            background: #333333;
-            color: #FFFFFF;
-            border: 1px solid #333333;
+        .what-we-offer .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .what-we-offer h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .what-we-offer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+        }
+
+        .what-we-offer ul li {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 1rem;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            transition: transform 0.2s ease;
+            width: 100%;
+        }
+
+        .what-we-offer ul li:nth-child(even) {
+            margin-left: 1.5rem;
+        }
+
+        .what-we-offer ul li:hover {
+            transform: translateX(5px);
+        }
+
+        .what-we-offer ul li .highlight {
+            color: #FF4500;
+        }
+
+        .what-we-offer ul li .regular {
+            color: #000000;
+        }
+
+        .what-we-offer ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #FF4500;
+            font-size: 1.3rem;
         }
 
         .our-services {
@@ -433,6 +508,7 @@
             display: grid;
             grid-template-areas:
                 "title"
+                "subtitle"
                 "description"
                 "cards";
             gap: 1rem;
@@ -442,6 +518,21 @@
 
         .our-services h2 {
             grid-area: title;
+        }
+
+        .our-services .subheading {
+            grid-area: subtitle;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .our-services .subheading .highlight {
+            color: #FF4500;
+        }
+
+        .our-services .subheading .regular {
+            color: #000000;
         }
 
         .our-services .description {
@@ -483,17 +574,6 @@
             flex-grow: 1;
         }
 
-        .service-card a {
-            font-size: 0.9rem;
-            color: #FF4500;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .service-card a:hover {
-            text-decoration: underline;
-        }
-
         @media (max-width: 768px) {
             .services-grid {
                 grid-template-columns: 1fr;
@@ -509,92 +589,6 @@
             .service-card {
                 min-height: 200px;
             }
-        }
-
-        .what-we-offer {
-            background: #F2F2F2;
-            background-attachment: fixed;
-            background-size: 100% 120%;
-        }
-
-        .what-we-offer .section-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .what-we-offer h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .what-we-offer ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        .what-we-offer ul li {
-            font-size: 1rem;
-            line-height: 1.8;
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .what-we-offer ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #FF4500;
-            font-size: 1.2rem;
-        }
-
-        .what-we-offer .learn-more {
-            display: inline-block;
-            color: #FF4500;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .what-we-offer .learn-more:hover {
-            color: #000000;
-        }
-
-        .what-we-offer .phone-mockups {
-            position: relative;
-            height: 400px;
-        }
-
-        .what-we-offer .phone-mockup {
-            position: absolute;
-            width: 200px;
-            height: 400px;
-            background: #FFFFFF;
-            border: 8px solid #000000;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .what-we-offer .phone-mockup img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .what-we-offer .phone-mockup:first-child {
-            left: 0;
-            z-index: 2;
-        }
-
-        .what-we-offer .phone-mockup:last-child {
-            right: 0;
-            z-index: 1;
-            transform: translateX(-20%);
         }
 
         .bitcoin-smart-choice {
@@ -671,7 +665,7 @@
 
         .dubai-based {
             position: relative;
-            background: url('https://images.unsplash.com/photo-1533038590108-e7e802a9b6d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background: url('https://images.unsplash.com/photo-1615747476328-41153cf6da54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
             color: #FFFFFF;
@@ -686,7 +680,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.7);
             z-index: 0;
         }
 
@@ -708,18 +702,6 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .dubai-based .learn-more {
-            display: inline-block;
-            color: #FF4500;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .dubai-based .learn-more:hover {
-            color: #FFFFFF;
         }
 
         .about {
@@ -843,6 +825,7 @@
             font-size: 1rem;
             font-weight: 400;
             margin-bottom: 1.5rem;
+            white-space: pre-line;
         }
 
         .contact-info .social-icons {
@@ -900,32 +883,41 @@
             resize: vertical;
         }
 
-        .contact-form .submit-button {
+        .submit-button {
             width: 100%;
-            padding: 1rem;
+            padding: 0.75rem;
             background: #000000;
             color: #FFFFFF;
-            border: none;
-            font-size: 1rem;
-            font-weight: 600;
+            border: 1px solid #000000;
             cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.3s;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s, border 0.3s;
+            box-sizing: border-box;
         }
 
-        .contact-form .submit-button:hover {
+        .submit-button:hover {
             background: #333333;
+            color: #FFFFFF;
+            border: 1px solid #333333;
+        }
+
+        .submit-button:focus {
+            outline: 2px solid #FF4500;
+            outline-offset: 2px;
         }
 
         @media (max-width: 768px) {
             :root {
-                --banner-height: 4rem; /* Adjust banner height for smaller screens */
+                --banner-height: 4rem;
             }
             .navbar-container {
                 top: var(--banner-height);
             }
             .slider-container {
-                height: calc(100vh - var(--banner-height));
+                height: 100vh;
             }
             .contact-content {
                 flex-direction: column;
@@ -1023,7 +1015,7 @@
                 animation: slideIn 0.3s ease-in-out;
             }
             @keyframes slideIn {
-                from { transform: translateY(-100%); opacity: 0; }
+                from { transform unicode-range: U+0000-00FF, U+2000-206F, U+2E80-2EFF, U+2F00-2FDF, U+3040-309F, U+30A0-30FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
                 to { transform: translateY(0); opacity: 1; }
             }
             .slide-content h1 {
@@ -1035,15 +1027,12 @@
             .section {
                 padding: 4rem 1rem;
             }
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
             .slider-container, .what-we-offer, .about, .dubai-based {
                 background-attachment: scroll;
             }
             .why-crypto h2 {
                 font-size: 2rem;
+                white-space: normal;
             }
             .why-crypto .subheading {
                 font-size: 1.2rem;
@@ -1053,10 +1042,10 @@
                 gap: 0.5rem;
             }
             .what-we-offer .section-content {
-                grid-template-columns: 1fr;
+                max-width: 600px;
             }
-            .what-we-offer .phone-mockups {
-                display: none;
+            .what-we-offer ul li {
+                font-size: 1rem;
             }
             .dubai-based h2 {
                 font-size: 2rem;
@@ -1083,8 +1072,12 @@
             .our-services .section-content {
                 grid-template-areas:
                     "title"
+                    "subtitle"
                     "description"
                     "cards";
+            }
+            .our-services .subheading {
+                font-size: 1.2rem;
             }
             .services-grid {
                 grid-template-columns: 1fr;
@@ -1114,19 +1107,19 @@
 
         @media (max-width: 576px) {
             :root {
-                --banner-height: 3.8rem; /* Adjust banner height for smaller screens */
+                --banner-height: 3.8rem;
             }
             .navbar-container {
                 top: var(--banner-height);
             }
             .slider-container {
-                height: calc(100vh - var(--banner-height));
+                height: 100vh;
             }
             .navbar-brand {
                 font-size: 1.5rem;
             }
             .slide-content h1 {
-                font-size: 1.5rem;
+                font-size:System.out.println("1.5rem");
             }
             .word-swap span {
                 font-size: 1.5rem;
@@ -1155,14 +1148,14 @@
             .bitcoin-smart-choice .slide-content p {
                 font-size: 0.9rem;
             }
+            .our-services .subheading {
+                font-size: 1rem;
+            }
             .cta-section h2 {
                 font-size: 1.5rem;
             }
             .contact-content {
                 flex-direction: column;
-            }
-            .form-group {
-                min-width: 100%;
             }
             .service-card {
                 min-height: 200px;
@@ -1173,7 +1166,6 @@
             }
         }
 
-        /* Footer Styling */
         footer {
             background: #000000;
             color: #FFFFFF;
@@ -1194,7 +1186,6 @@
             margin: 0.5rem 0;
         }
 
-        /* Back-to-Top Button Styling */
         .back-to-top {
             position: fixed;
             bottom: 20px;
@@ -1237,8 +1228,8 @@
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             <div class="nav-menu">
                 <a href="#" class="nav-item active" aria-label="Home">Home</a>
-                <a href="#" class="nav-item" aria-label="About">About</a>
                 <a href="#" class="nav-item" aria-label="Services">Services</a>
+                <a href="#" class="nav-item" aria-label="About">About</a>
                 <button type="button" class="cta-button" aria-label="Contact">Contact</button>
             </div>
         </nav>
@@ -1250,7 +1241,17 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h2><span class="highlight">HODL ₿TC.</span> <span class="regular">The Future of Crypto is Now</span></h2>
-                    <p>Trusted Education = Trusted Crypto</p>
+                    <p>Have questions about Bitcoin, wallets, or crypto security? We’d love to help!<br>
+                        <strong>Dubai, UAE</strong><br>
+                        <strong>+971 XXXXXX</strong><br>
+                        <strong>hodl.btc.dxb@gmail.com</strong><br>
+                        Or fill out the form, and we’ll get back to you ASAP!
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/1234567890" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://linkedin.com" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 <form class="contact-form">
                     <div class="form-group">
@@ -1327,38 +1328,26 @@
 
     <section class="section what-we-offer">
         <div class="section-content">
-            <div>
-                <h2><span class="regular">What We</span> <span class="highlight">Offer</span></h2>
-                <ul>
-                    <li>Beginner-friendly step-by-step guidance</li>
-                    <li>Secure wallet setup & management</li>
-                    <li>Best practices for crypto security</li>
-                    <li>Assistance with buying & storing crypto safely</li>
-                    <li>Personalized one-on-one support</li>
-                </ul>
-                <a href="#" class="learn-more">See what’s possible with HODL ₿TC’s crypto tools →</a>
-            </div>
-            <div class="phone-mockups">
-                <div class="phone-mockup">
-                    <img src="https://via.placeholder.com/200x400?text=Crypto+App+1" alt="Crypto App Screenshot 1">
-                </div>
-                <div class="phone-mockup">
-                    <img src="https://via.placeholder.com/200x400?text=Crypto+App+2" alt="Crypto App Screenshot 2">
-                </div>
-            </div>
+            <h2><span class="regular">What We</span> <span class="highlight">Offer</span></h2>
+            <ul>
+                <li><span class="highlight">Beginner-friendly</span> <span class="regular">step-by-step guidance</span></li>
+                <li><span class="highlight">Secure</span> <span class="regular">wallet setup & management</span></li>
+                <li><span class="highlight">Best practices</span> <span class="regular">for crypto security</span></li>
+                <li><span class="highlight">Assistance</span> <span class="regular">with buying & storing crypto safely</span></li>
+                <li><span class="highlight">Personalized</span> <span class="regular">one-on-one support</span></li>
+            </ul>
         </div>
     </section>
 
     <section class="section why-crypto">
         <div class="section-content">
-            <h2><span class="regular">Why</span> <span class="highlight">Crypto?</span></h2>
+            <h2><span class="regular">Why</span> <span class="highlight">Crypto?</span> <span class="regular">Why</span> <span class="highlight">Now?</span></h2>
             <div class="subheading">
-                <span class="highlight">₿itcoin and blockchain</span> <span class="regular">at the core of your intelligent strategy</span>
+                <span class="highlight">Bitcoin and blockchain</span> <span class="regular">are revolutionizing finance.</span>
             </div>
             <p>Don’t get left behind—learn how to buy, store, and protect your assets today.</p>
             <div class="button-group">
-                <a href="#" class="cta-slider-button">Start Investing</a>
-                <a href="#" class="secondary-button">Learn More</a>
+                <a href="#" class="cta-slider-button">READ ₿ITCOIN WHITEPAPER</a>
             </div>
         </div>
     </section>
@@ -1423,45 +1412,41 @@
     <section class="section our-services">
         <div class="section-content">
             <h2><span class="regular">Our</span> <span class="highlight">Services</span></h2>
+            <div class="subheading">
+                <span class="regular">Your Crypto Journey,</span> <span class="highlight">Simplified</span>
+            </div>
             <div class="description">
-                <p>Built to meet you where you are. Our tools are designed with flexibility and versatility at their core, adapting to your unique roles, industries, and needs.</p>
-                <p>For every role</p>
+                <p>Whether you're just getting started or want to level up your crypto knowledge, We provide one-on-one guidance tailored to your needs.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Crypto Basics & Buying Guide</h3>
                     <p>Learn how to buy ₿itcoin & other cryptocurrencies safely</p>
                     <p>Understand exchanges, wallets & transaction security</p>
-                    <a href="#">AI strategies for Crypto Basics ></a>
                 </div>
                 <div class="service-card">
                     <h3>Wallet Setup & Security</h3>
                     <p>Assistance with setting up hot & cold wallets</p>
                     <p>Learn best practices for private key management</p>
-                    <a href="#">AI strategies for Wallet Setup ></a>
                 </div>
                 <div class="service-card">
                     <h3>Crypto Security & Cold Storage</h3>
                     <p>Learn how to secure your assets from hackers & fraud</p>
                     <p>Assistance with hardware wallets</p>
-                    <a href="#">AI strategies for Crypto Security ></a>
                 </div>
                 <div class="service-card">
                     <h3>One-on-One Consultation & Portfolio Guidance</h3>
                     <p>Get personalized advice on crypto best practices</p>
                     <p>Understand how to store & manage your investments safely</p>
-                    <a href="#">AI strategies for Consultation ></a>
                 </div>
                 <div class="service-card">
                     <h3>In-Person & Online Support (Dubai & Beyond)</h3>
                     <p>Available for face-to-face meetings</p>
                     <p>Virtual consultations for global clients</p>
-                    <a href="#">AI strategies for Support ></a>
                 </div>
                 <div class="service-card">
                     <h3>Personalized Crypto Support & Education</h3>
                     <p>💡 Whether you're just getting started or want to level up your crypto knowledge, We provide one-on-one guidance tailored to your needs.</p>
-                    <a href="#">AI strategies for Support & Education ></a>
                 </div>
             </div>
         </div>
@@ -1472,25 +1457,24 @@
             <h2><span class="regular">Built with partners you can</span> <span class="highlight">trust</span></h2>
             <p>In-person and online support for all, from our base in Dubai with global reach.</p>
             <p>We DO NOT buy or sell crypto assets, nor do we endorse trading or any "quick cash" schemes. Instead, we focus on knowledge sharing and responsible, long-term investing.</p>
-            <a href="#" class="learn-more">Learn more about our mission →</a>
         </div>
     </section>
 
     <section class="section about">
         <div class="section-content">
-            <h2><span class="regular">About</span> <span class="highlight">Us</span></h2>
+            <h2><span class="regular">Mission, Vision</span> <span class="highlight">& Expertise</span></h2>
             <div class="about-text left">
-                <h3>Our Mission</h3>
+                <h3>🚀 Our Mission</h3>
                 <p>At HODL ₿TC, our mission is to empower individuals to navigate the cryptocurrency world safely and confidently. We believe that crypto is the future, and our goal is to help you make informed, secure, and independent financial decisions.</p>
             </div>
             <div class="empty-column"></div>
             <div class="empty-column"></div>
             <div class="about-text right">
-                <h3>Our Vision</h3>
+                <h3>👁️ Our Vision</h3>
                 <p>To make ₿itcoin and crypto simple, safe, and accessible to everyone. We aim to bridge the gap between technology and everyday users by providing reliable and transparent crypto guidance.</p>
             </div>
             <div class="about-text left">
-                <h3>Our Expertise</h3>
+                <h3>🎓 Our Expertise</h3>
                 <p>We are a passionate team of crypto enthusiasts with years of experience in blockchain, cryptocurrency security, and portfolio management. We specialize in:</p>
                 <ul>
                     <li>Crypto onboarding for beginners</li>
@@ -1510,11 +1494,16 @@
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="section contact-section">
         <div class="contact-content">
             <div class="contact-info">
                 <h2><span class="highlight">HODL ₿TC.</span> <span class="regular">The Future of Crypto is Now</span></h2>
-                <p>Trusted Education = Trusted Crypto</p>
+                <p>Have questions about Bitcoin, wallets, or crypto security? We’d love to help!<br>
+                    <strong>Dubai, UAE</strong><br>
+                    <strong>+971 XXXXXX</strong><br>
+                    <strong>hodl.btc.dxb@gmail.com</strong><br>
+                    Or fill out the form, and we’ll get back to you ASAP!
+                </p>
                 <div class="social-icons">
                     <a href="https://wa.me/1234567890" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://linkedin.com" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -1565,7 +1554,6 @@
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
 
-            // Toggle banner visibility and adjust navbar position
             const isBannerHidden = scrollPosition > 0;
             banner.classList.toggle('hidden', isBannerHidden);
             navbarContainer.style.top = isBannerHidden ? '0' : 'var(--banner-height)';
@@ -1726,6 +1714,31 @@
         const backToTop = document.querySelector('.back-to-top');
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Navbar scroll behavior
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+                const text = item.textContent.toLowerCase();
+                let targetSection;
+                if (text === 'home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else if (text === 'services') {
+                    targetSection = document.querySelector('.our-services');
+                } else if (text === 'about') {
+                    targetSection = document.querySelector('.about');
+                }
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 50, // Adjust for navbar height
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
